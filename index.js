@@ -1,9 +1,9 @@
-require('dotenv').config();
+const fetch = require('node-fetch');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const TOKEN = process.env.TOKEN;
-const fetch = require('node-fetch');
 
+require('dotenv').config();
+const TOKEN = process.env.TOKEN;
 bot.login(TOKEN);
 
 bot.on('ready', () => {
@@ -11,6 +11,21 @@ bot.on('ready', () => {
 });
 
 bot.on('message', msg => {
+  if (msg.content === 'ci-help') {
+    
+    msg.channel.send(`COMMAND LIST
+    ci-social : Social Media of Coral Island Information
+    ks-stat : Coral Island's Kickstarter Status
+    `)
+  }
+
+  if (msg.content === 'ci-social'){
+    msg.channel.send(`Follow Us On
+    Steam : https://store.steampowered.com/app/1158160/Coral_Island/
+    Twitter : https://twitter.com/coralislandgame
+    Reddit : https://www.reddit.com/r/coralisland/`)
+  }
+
   if (msg.content === 'ks-stat') {
     fetch('https://www.kickstarter.com/projects/coralisland/coral-island-reimagining-the-farm-sim-game/stats.json?v=1')
       .then(res => res.json())
@@ -68,13 +83,12 @@ bot.on('message', msg => {
           nextGoal = goals.goal9
         }
 
-        msg.channel.send(`Coral Island Kickstarter Status`)
-        msg.channel.send(`Status : ${body.project.state}`)
-        msg.channel.send(`Total Pledge : US$${body.project.pledged}`)
-        msg.channel.send(`Total Backers : ${body.project.backers_count}`)
-        msg.channel.send(`Achieved Stretch Goal : ${achievedGoal}`)
-        msg.channel.send(`Next Stretch Goal : ${nextGoal}`)
-
+        msg.channel.send(`Coral Island Kickstarter Status
+        Status : ${body.project.state}
+        Total Pledge : US$${body.project.pledged}
+        Total Backers : ${body.project.backers_count}
+        Achieved Stretch Goal : ${achievedGoal}
+        Next Stretch Goal : ${nextGoal}`)
       });
   }
 });
