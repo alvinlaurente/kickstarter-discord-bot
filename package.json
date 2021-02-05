@@ -1,7 +1,7 @@
 {
-  "name": "discord-bot",
+  "name": "coral-island-bot",
   "version": "1.0.0",
-  "description": "Discord bot for SitePoint",
+  "description": "Discord bot for Coral Island Server",
   "main": "index.js",
   "engines": {
     "node": "12.18.4"
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Michiel Mulders",
+  "author": "Coral Island",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.5.1",
