@@ -95,12 +95,14 @@ Reddit : https://www.reddit.com/r/coralisland/`)
           nextGoal = "All stretch goal completed"
         }
 
+        let deficit = pledged - nextGoalAmmount
+
         msg.channel.send(`Coral Island Kickstarter Status
 Status : ${body.project.state}
-Total Pledge : US$${pledged}
+Total Pledge : US$${Math.floor(pledged)}
 Total Backers : ${body.project.backers_count}
 Previous Achieved Stretch Goal : ${achievedGoal}
-Next Stretch Goal : ${nextGoal} ($${nextGoalAmmount})`)
+Next Stretch Goal : ${nextGoal} ($${Math.floor(deficit)})`)
       });
   }
 });
