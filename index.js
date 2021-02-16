@@ -39,7 +39,12 @@ Reddit : https://www.reddit.com/r/coralisland/`)
           goal6: "Merfolk Underwater Village",
           goal7: "Kids Grow Up",
           goal8: "Mod Support",
-          goal9: "Multiplayer"
+          goal9: "Multiplayer",
+          goal10: "Beach & Festival Outfits",
+          goal11: "M/S/B/C Now Dateable!",
+          goal12: "4 New Characters Added",
+          goal13: "Merfolk Kingdom",
+          goal14: "Island Hopping (Endgame)"
         }
 
         const pledged = parseFloat(body.project.pledged)
@@ -91,8 +96,33 @@ Reddit : https://www.reddit.com/r/coralisland/`)
           nextGoal = goals.goal9
         }
         if (pledged >= 600000) {
+          nextGoalAmmount = 700000
           achievedGoal = goals.goal9
-          nextGoal = "All stretch goal completed"
+          nextGoal = goals.goal10
+        }
+        if (pledged >= 700000) {
+          nextGoalAmmount = 750000
+          achievedGoal = goals.goal10
+          nextGoal = goals.goal11
+        }
+        if (pledged >= 750000) {
+          nextGoalAmmount = 850000
+          achievedGoal = goals.goal11
+          nextGoal = goals.goal12
+        }
+        if (pledged >= 850000) {
+          nextGoalAmmount = 1000000
+          achievedGoal = goals.goal12
+          nextGoal = goals.goal13
+        }
+        if (pledged >= 1000000) {
+          nextGoalAmmount = 1250000
+          achievedGoal = goals.goal13
+          nextGoal = goals.goal14
+        }
+        if (pledged >= 1250000) {
+          achievedGoal = goals.goal11
+          nextGoal = "All stretch goals reached."
         }
 
         let deficit = pledged - nextGoalAmmount
